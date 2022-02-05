@@ -9,7 +9,7 @@ INC_DIR = includes
 INC = -I$(INC_DIR)
 INCLUDES = $(INC_DIR)/philo.h
 
-SRCS = main.c write.c utils.c
+SRCS = main.c write.c utils.c init_and_check.c
 
 SRC = $(addprefix srcs/, $(SRCS))
 
