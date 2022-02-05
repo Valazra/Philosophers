@@ -11,7 +11,7 @@ SRCS = main.c
 
 SRC = $(addprefix srcs/, $(SRCS))
 
-OBJS = = $(SRC:.c=.o)
+OBJS = $(SRC:.c=.o)
 
 $(SRC_DIR)/%.o: $(SRC_DIR)/%.c $(INCLUDES)
 	$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
