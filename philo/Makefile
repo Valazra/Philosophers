@@ -6,20 +6,22 @@ CFLAGS = -Wall -Wextra -Werror -pthread #-g -fsanitize=thread
 SRCS_DIR = srcs
 INC_DIR = includes
 
+INC = -I$(INC_DIR)
 INCLUDES = $(INC_DIR)/philo.h
-SRCS = main.c
+
+SRCS = main.c write.c utils.c
 
 SRC = $(addprefix srcs/, $(SRCS))
 
 OBJS = $(SRC:.c=.o)
 
-$(SRC_DIR)/%.o: $(SRC_DIR)/%.c $(INCLUDES)
-	$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
+$(SRCS_DIR)/%.o: $(SRCS_DIR)/%.c $(INCLUDES)
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -I$(INC_DIR) -o $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) $(INC) -o $(NAME) $(OBJS)
 
 clean:
 	rm -f $(OBJS)
