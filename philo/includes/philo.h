@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 07:23:58 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 06:43:05 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/07 07:54:48 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_data
 typedef struct s_philo
 {
 	int				id;
-	//int		nb_time_eat;
+	int				nb_eaten;
 	//long		record_time_eat;
 	pthread_t		thread_id;
 	//pthread_t	thread_check_id;
