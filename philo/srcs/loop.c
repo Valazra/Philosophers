@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 04:39:34 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 23:32:59 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/07 23:46:56 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	*loop(void *philo_arg)
 				&loop_check_death, philo_arg))
 		{
 			philo->data->is_finish = 3;
-			write_error("Error with pthread_create");
+			write_error("Error with pthread_create\n");
 			return (NULL);
 		}
 		pthread_detach(philo->thread_check_id);
