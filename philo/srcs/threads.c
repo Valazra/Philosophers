@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 04:34:32 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 04:38:58 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/07 05:39:40 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,15 @@ void	finish_threads(t_philo *philo)
 	while (i < philo->data->nb_philo)
 	{
 		pthread_join(philo[i].thread_id, NULL);
+		i++;
+	}
+	pthread_mutex_lock(&philo->data->write_mutex);
+	pthread_mutex_unlock(&philo->data->write_mutex);
+	pthread_mutex_destroy(&philo->data->write_mutex);
+	i = 0;
+	while (i < philo->data->nb_philo)
+	{
+		pthread_mutex_destroy(&philo[i].left_fork_mutex);
 		i++;
 	}
 	free(philo);
