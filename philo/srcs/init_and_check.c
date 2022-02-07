@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 08:11:28 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 04:43:44 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/07 05:30:28 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	init_structs(t_data *data, t_philo *philo)
 	int	i;
 
 	i = 0;
+	data->time_start = ft_time();
 	while (i < data->nb_philo)
 	{
 		philo[i].data = data;
