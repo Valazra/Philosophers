@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 04:39:34 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 08:09:38 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/07 09:10:55 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,20 @@
 
 void	*loop_alone(t_philo *philo)
 {
-	(void)philo;
+	pthread_mutex_lock(&philo->left_fork_mutex);
+	if (!display_action(philo, "has taken a fork", OTHER))
+	{
+		pthread_mutex_unlock(&philo->left_fork_mutex);
+		return (NULL);
+	}
+	use_usleep(philo->data->ttd);
+	pthread_mutex_unlock(&philo->left_fork_mutex);
 	return (NULL);
 }
 
 int	loop_start(t_philo *philo)
 {
+	(void)philo;
 	//fork then eat then sleep then think
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 08:11:28 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 07:54:56 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/07 09:03:31 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,14 @@ void	init_structs(t_data *data, t_philo *philo)
 		philo[i].id = i + 1;
 		philo[i].data = data;
 		philo[i].nb_eaten = 0;
+		philo[i].save_time = data->time_start;
 		philo[i].right_fork_mutex = NULL;
 		pthread_mutex_init(&philo[i].left_fork_mutex, NULL);
 		if (data->nb_philo == 1)
 			return ;
-		if (data->nb_philo -1 != i)
+		if (data->nb_philo - 1 != i)
 			philo[i].right_fork_mutex = &philo[i + 1].left_fork_mutex;
-		if (data->nb_philo -1 == i)
+		if (data->nb_philo - 1 == i)
 			philo[i].right_fork_mutex = &philo[0].left_fork_mutex;
 		i++;
 	}
@@ -49,7 +50,7 @@ int	init_data(t_data *data, char *str, int i)
 	{
 		if (str[j] < '0' || str[j] > '9')
 			return (0);
-		res = res * 10 + str[j] - '0';
+		res = (res * 10) + (str[j] - '0');
 		j++;
 	}
 	if (res > 2147483647 || (res == 0 && i != 5))

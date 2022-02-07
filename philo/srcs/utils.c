@@ -6,13 +6,13 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 08:06:07 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 08:16:32 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/07 08:29:58 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	count_digit(long nb)
+int	count_digits(long nb)
 {
 	int	ret;
 
@@ -51,4 +51,9 @@ int	ft_strlen(char *str)
 	while (str[i])
 		i++;
 	return (i);
+}
+
+void	ft_putstr(char *str)
+{
+	write(1, str, ft_strlen(str));
 }

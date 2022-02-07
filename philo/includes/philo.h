@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 07:23:58 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 08:17:58 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/07 09:08:36 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@
 # include <pthread.h>
 # include <string.h>
 # include <sys/time.h>
+
+# define DIED 0
+# define EAT 1
+# define OTHER 2
 
 typedef struct s_data
 {
@@ -37,7 +41,7 @@ typedef struct s_philo
 {
 	int				id;
 	int				nb_eaten;
-	//long		record_time_eat;
+	long		save_time;
 	pthread_t		thread_id;
 	//pthread_t	thread_check_id;
 	pthread_mutex_t	left_fork_mutex;
@@ -49,13 +53,14 @@ typedef struct s_philo
 int		init_and_check_params(int ac, char **av, t_data *data);
 int		write_error(char *str);
 int		ft_strlen(char *str);
+void	ft_putstr(char *str);
 void	init_structs(t_data *data, t_philo *philo);
 int		create_threads(t_philo *philo);
 int		finish_threads(t_philo *philo);
 void	*loop(void *philo_arg);
 long	ft_time(void);
 void	use_usleep(long time_to_wait);
-int		write_action(t_philo *philo, char *str, int statut);
+int		display_action(t_philo *philo, char *str, int statut);
 int		insert_nb_in_str(long nb, char *str);
 
 #endif
