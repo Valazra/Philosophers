@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 08:09:53 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 09:01:49 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/07 09:20:01 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,11 @@ int	display_action(t_philo *philo, char *str, int statut)
 	index = 0;
 	i = -1;
 	memset(buff, 0, 100);
-	pthread_mutex_lock(&philo->data->write_mutex);
-///////////////////
+	if (statut != DIED)
+		pthread_mutex_lock(&philo->data->write_mutex);
 	time_elapsed = ft_time() - philo->data->time_start;
-	printf("data->time_start = %ld et time_elapsed = %ld\n", philo->data->time_start, time_elapsed);
 	index = insert_nb_in_str(time_elapsed, buff) + 1;
-	index += insert_nb_in_str((long)philo->thread_id, &buff[index]) + 1;
+	index += insert_nb_in_str((long)philo->id, &buff[index]) + 1;
 	while (str[++i])
 		buff[index + i] = str[i];
 	index = index + i;
