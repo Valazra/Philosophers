@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 08:11:28 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 09:20:49 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/07 09:53:52 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	init_structs(t_data *data, t_philo *philo)
 
 	i = 0;
 	data->is_finish = 0;
-	data->all_eat = 0;
+	data->finish_eat = 0;
 	data->time_start = ft_time();
 	pthread_mutex_init(&data->write_mutex, NULL);
 	while (i < data->nb_philo)
@@ -26,7 +26,7 @@ void	init_structs(t_data *data, t_philo *philo)
 		philo[i].id = i + 1;
 		philo[i].data = data;
 		philo[i].nb_eaten = 0;
-		philo[i].save_time = data->time_start;
+		philo[i].save_time_eat = data->time_start;
 		philo[i].right_fork_mutex = NULL;
 		pthread_mutex_init(&philo[i].left_fork_mutex, NULL);
 		if (data->nb_philo == 1)

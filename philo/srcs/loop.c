@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 04:39:34 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 09:10:55 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/07 10:02:49 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,21 @@ void	*loop_alone(t_philo *philo)
 
 int	loop_start(t_philo *philo)
 {
-	(void)philo;
 	//fork then eat then sleep then think
+	if (philo->id == 1)
+	{
+		if (!first_philo_cycle(philo))
+			return (0);
+	}
+/*	else
+	{
+		if ()
+			return (0);
+	}
+	if ()
+		return (0);
+	if ()
+		return (0);*/
 	return (1);
 }
 

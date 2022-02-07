@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 07:23:58 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 09:19:08 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/07 10:01:33 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_data
 	int				tts;
 	int				nb_must_eat;
 	int				is_finish;
-	int				all_eat;
+	int				finish_eat;
 	long			time_start;
 	pthread_mutex_t	write_mutex;
 }		t_data;
@@ -41,7 +41,7 @@ typedef struct s_philo
 {
 	int				id;
 	int				nb_eaten;
-	long		save_time;
+	long		save_time_eat;
 	pthread_t		thread_id;
 	//pthread_t	thread_check_id;
 	pthread_mutex_t	left_fork_mutex;
@@ -62,5 +62,6 @@ long	ft_time(void);
 void	use_usleep(long time_to_wait);
 int		display_action(t_philo *philo, char *str, int statut);
 int		insert_nb_in_str(long nb, char *str);
+int		first_philo_cycle(t_philo *philo);
 
 #endif
