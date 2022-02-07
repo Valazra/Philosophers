@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/05 07:25:24 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 04:44:32 by user42           ###   ########.fr       */
+/*   Created: 2022/02/07 04:39:34 by user42            #+#    #+#             */
+/*   Updated: 2022/02/07 04:41:26 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int ac, char **av)
+void	*routine(void *void_p)
 {
-	t_data	data;
 	t_philo	*philo;
 
-	data.nb_must_eat = -1;
-	if (!init_and_check_params(ac, av, &data))
-		return (-1);
-	philo = malloc(sizeof(*philo) * data.nb_philo);
-	if (!philo)
-		return (write_error("Malloc_error"));
-	memset(philo, 0, sizeof(t_philo) * data.nb_philo);
-	init_structs(&data, philo);
-	create_threads(philo);
-	finish_threads(philo);
-	return (0);
+	philo = (t_philo *)void_p;
+	printf("bonjour\n");
+	return (NULL);
 }
