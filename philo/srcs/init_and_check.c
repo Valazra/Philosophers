@@ -6,13 +6,13 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 08:11:28 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 09:53:52 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/07 23:30:09 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	init_structs(t_data *data, t_philo *philo)
+void	init_philos(t_data *data, t_philo *philo)
 {
 	int	i;
 
@@ -39,6 +39,20 @@ void	init_structs(t_data *data, t_philo *philo)
 	}
 }
 
+void	set_data(t_data *data, int i, long res)
+{
+	if (i == 1)
+		data->nb_philo = res;
+	if (i == 2)
+		data->ttd = res;
+	if (i == 3)
+		data->tte = res;
+	if (i == 4)
+		data->tts = res;
+	if (i == 5)
+		data->nb_must_eat = res;
+}
+
 int	init_data(t_data *data, char *str, int i)
 {
 	int		j;
@@ -55,16 +69,7 @@ int	init_data(t_data *data, char *str, int i)
 	}
 	if (res > 2147483647 || (res == 0 && i != 5))
 		return (0);
-	if (i == 1)
-		data->nb_philo = res;
-	if (i == 2)
-		data->ttd = res;
-	if (i == 3)
-		data->tte = res;
-	if (i == 4)
-		data->tts = res;
-	if (i == 5)
-		data->nb_must_eat = res;
+	set_data(data, i, res);
 	return (1);
 }
 

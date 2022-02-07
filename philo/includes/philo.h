@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 07:23:58 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 14:33:22 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/07 23:21:38 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int		init_and_check_params(int ac, char **av, t_data *data);
 int		write_error(char *str);
 int		ft_strlen(char *str);
 void	ft_putstr(char *str);
-void	init_structs(t_data *data, t_philo *philo);
+void	init_philos(t_data *data, t_philo *philo);
 int		create_threads(t_philo *philo);
 int		finish_threads(t_philo *philo);
 void	*loop(void *philo_arg);
