@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 07:23:58 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 05:42:17 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/07 06:43:05 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ typedef struct s_data
 	int				tte;
 	int				tts;
 	int				nb_must_eat;
-	//int	is_finish;
-	//int	finish_eat;
+	int				is_finish;
+	int				all_eat;
 	long			time_start;
 	pthread_mutex_t	write_mutex;
 }		t_data;
@@ -51,8 +51,8 @@ int		write_error(char *str);
 int		ft_strlen(char *str);
 void	init_structs(t_data *data, t_philo *philo);
 int		create_threads(t_philo *philo);
-void	finish_threads(t_philo *philo);
-void	*routine(void *void_p);
+int		finish_threads(t_philo *philo);
+void	*loop(void *philo_arg);
 long	ft_time(void);
 
 #endif
