@@ -6,11 +6,42 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 08:06:07 by user42            #+#    #+#             */
-/*   Updated: 2022/02/05 08:06:44 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/07 08:16:32 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+int	count_digit(long nb)
+{
+	int	ret;
+
+	ret = 0;
+	if (nb == 0)
+		return (1);
+	while (nb != 0)
+	{
+		nb = nb / 10;
+		ret++;
+	}
+	return (ret);
+}
+
+int	insert_nb_in_str(long nb, char *str)
+{
+	int	nb_digits;
+	int	index;
+
+	nb_digits = count_digits(nb);
+	str[nb_digits] = ' ';
+	index = nb_digits;
+	while (--nb_digits > -1)
+	{
+		str[nb_digits] = (nb % 10) + '0';
+		nb = nb / 10;
+	}
+	return (index);
+}
 
 int	ft_strlen(char *str)
 {

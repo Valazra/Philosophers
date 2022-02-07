@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 07:23:58 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 07:54:48 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/07 08:17:58 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,8 @@ int		create_threads(t_philo *philo);
 int		finish_threads(t_philo *philo);
 void	*loop(void *philo_arg);
 long	ft_time(void);
+void	use_usleep(long time_to_wait);
+int		write_action(t_philo *philo, char *str, int statut);
+int		insert_nb_in_str(long nb, char *str);
 
 #endif

@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   statut.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/05 07:25:24 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 07:59:21 by user42           ###   ########.fr       */
+/*   Created: 2022/02/07 08:09:53 by user42            #+#    #+#             */
+/*   Updated: 2022/02/07 08:13:34 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int ac, char **av)
+int	write_action(t_philo *philo, char *str, int statut)
 {
-	t_data	data;
-	t_philo	*philo;
+	char	buff[100];
+	int	i;
 
-	data.nb_must_eat = -1;
-	if (init_and_check_params(ac, av, &data) == -1)
-		return (-1);
-	philo = malloc(sizeof(*philo) * data.nb_philo);
-	if (!philo)
-		return (write_error("Malloc_error"));
-	memset(philo, 0, sizeof(t_philo) * data.nb_philo);
-	init_structs(&data, philo);
-	create_threads(philo);
-	finish_threads(philo);
-	return (0);
+	memset(buff, 0, 100);
+///////////////////
 }
