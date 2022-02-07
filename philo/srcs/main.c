@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 07:25:24 by user42            #+#    #+#             */
-/*   Updated: 2022/02/05 08:21:03 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/07 04:32:53 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ int	main(int ac, char **av)
 	philo = malloc(sizeof(*philo) * data.nb_philo);
 	if (!philo)
 		return (write_error("Malloc_error"));
-	free(philo);
+	memset(philo, 0, sizeof(t_philo) * data.nb_philo);
+//	init_structs(&data, philo);
+	create_threads(philo);
 //a virer mais à chaque erreur qu'on aura, pas oublier de free philo
+	free(philo);
 	return (0);
 }
