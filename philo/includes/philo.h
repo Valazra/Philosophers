@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 07:23:58 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 11:35:16 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/07 14:33:22 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,11 @@ typedef struct s_philo
 {
 	int				id;
 	int				nb_eaten;
-	long		save_time_eat;
-	pthread_t	thread_id;
-	pthread_t	thread_check_id;
+	long			save_time_eat;
+	pthread_t		thread_id;
+	pthread_t		thread_check_id;
 	pthread_mutex_t	left_fork_mutex;
 	pthread_mutex_t	*right_fork_mutex;
-	//pthread_mutex_t	time_mutex;
 	t_data			*data;
 }		t_philo;
 

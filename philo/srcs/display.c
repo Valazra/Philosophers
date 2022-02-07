@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 08:09:53 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 09:49:59 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/07 15:09:05 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ int	eat(t_philo *philo, char buff[100])
 		return (0);
 	}
 	ft_putstr(buff);
-////////////////
 	philo->save_time_eat = ft_time();
 	philo->nb_eaten++;
 	if (philo->data->nb_must_eat == philo->nb_eaten)
 		philo->data->finish_eat++;
-	if (philo->data->finish_eat == philo->data->nb_philo && philo->data->nb_must_eat >= 0)
+	if (philo->data->finish_eat == philo->data->nb_philo
+		&& philo->data->nb_must_eat >= 0)
 	{
 		philo->data->is_finish = 2;
 		pthread_mutex_unlock(&philo->data->write_mutex);
@@ -59,7 +59,7 @@ int	display_action(t_philo *philo, char *str, int statut)
 	char	buff[100];
 	int		i;
 	int		index;
-	long		time_elapsed;
+	long	time_elapsed;
 
 	index = 0;
 	i = -1;

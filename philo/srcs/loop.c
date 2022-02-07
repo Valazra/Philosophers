@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 04:39:34 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 11:21:42 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/07 22:32:21 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,15 @@ void	*loop_check_death(void *philo_arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)philo_arg;
-///////////
 	use_usleep(philo->data->ttd + 1);
 	pthread_mutex_lock(&philo->data->write_mutex);
-	if (((ft_time() - philo->save_time_eat) >= philo->data->ttd) && !philo->data->is_finish)
+	if (((ft_time() - philo->save_time_eat) >= philo->data->ttd)
+		&& !philo->data->is_finish)
 	{
 		philo->data->is_finish = 1;
 		display_action(philo, "died", DIED);
 		return (NULL);
 	}
-//////////
 	pthread_mutex_unlock(&philo->data->write_mutex);
 	return (NULL);
 }
@@ -70,21 +69,18 @@ void	*loop(void *philo_arg)
 	philo = (t_philo *)philo_arg;
 	if (philo->data->nb_must_eat == 0)
 		return (NULL);
-/////////
 	if (philo->id % 2 == 0)
 		use_usleep(philo->data->tte / 10);
-////////
 	while (1)
 	{
-	//////////
-		if (pthread_create(&philo->thread_check_id, NULL, loop_check_death, philo_arg))
+		if (pthread_create(&philo->thread_check_id, NULL,
+				&loop_check_death, philo_arg))
 		{
 			philo->data->is_finish = 3;
 			write_error("Error with pthread_create");
 			return (NULL);
 		}
 		pthread_detach(philo->thread_check_id);
-	//////////
 		if (philo->data->nb_philo == 1)
 			return (loop_alone(philo));
 		if (!loop_start(philo))
