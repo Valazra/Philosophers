@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 04:34:32 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 23:46:39 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/08 11:18:54 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ int	finish_threads(t_philo *philo)
 		i++;
 	}
 	use_usleep(philo->data->ttd * 2);
-	pthread_mutex_lock(&philo->data->write_mutex);
-	pthread_mutex_unlock(&philo->data->write_mutex);
 	pthread_mutex_destroy(&philo->data->write_mutex);
 	i = 0;
 	while (i < philo->data->nb_philo)

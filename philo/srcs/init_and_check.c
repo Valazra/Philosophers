@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 08:11:28 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 23:30:09 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/08 10:09:40 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	init_philos(t_data *data, t_philo *philo)
 	data->is_finish = 0;
 	data->finish_eat = 0;
 	data->time_start = ft_time();
+	if (data->time_start == -1)
+		return ;
 	pthread_mutex_init(&data->write_mutex, NULL);
 	while (i < data->nb_philo)
 	{

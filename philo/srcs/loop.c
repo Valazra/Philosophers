@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 04:39:34 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 23:46:56 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/08 11:31:40 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	loop_start(t_philo *philo)
 		if (!first_philo_cycle(philo))
 			return (0);
 	}
-	if (philo->id != 1)
+	else
 	{
 		if (!cycle_eat(philo))
 			return (0);

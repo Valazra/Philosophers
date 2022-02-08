@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 07:25:24 by user42            #+#    #+#             */
-/*   Updated: 2022/02/07 23:45:55 by user42           ###   ########.fr       */
+/*   Updated: 2022/02/08 11:04:51 by vazra            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ int	main(int ac, char **av)
 		return (write_error("Malloc_error\n"));
 	memset(philo, 0, sizeof(t_philo) * data.nb_philo);
 	init_philos(&data, philo);
+	if (data.time_start == -1)
+	{
+		free(philo);
+		return (0);
+	}
 	create_threads(philo);
 	finish_threads(philo);
 	return (0);
