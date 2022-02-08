@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 07:25:24 by user42            #+#    #+#             */
-/*   Updated: 2022/02/08 11:04:51 by vazra            ###   ########.fr       */
+/*   Updated: 2022/02/08 21:15:43 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,6 @@ int	main(int ac, char **av)
 	data.nb_must_eat = -1;
 	if (init_and_check_params(ac, av, &data) == -1)
 		return (-1);
-	if (data.nb_must_eat == 0)
-	{
-		ft_putstr("nb_must_eat = 0, so the loop never starts\n");
-		return (0);
-	}
 	philo = malloc(sizeof(*philo) * data.nb_philo);
 	if (!philo)
 		return (write_error("Malloc_error\n"));
